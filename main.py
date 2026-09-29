@@ -623,8 +623,8 @@ def main_menu():
             break
         else:
             print("Invalid choice. Please try again.")
-
-database.create_table()  
-database.create_academic_table()
-load_students()
-main_menu()
+if __name__ == "__main__":
+    database.create_table()  
+    database.create_academic_table()
+    load_students()
+    main_menu()
