@@ -1,83 +1,87 @@
-# VITB360: Student Academic and Performance Hub
+# VITB360: STUDENT ACADEMIC AND PERFORMANCE HUB
 
 ## About the Project
 
-VITB360 is a simple command-line based student academic and performance management system developed as a first-year Python project.
+VITB360 is a simple command-line based academic management system developed using Python and SQLite.
 
-The idea behind the project was to create something more useful than just storing student marks, but make something slightly ec=xciting and motivating from the student point of view. The system allows different users to access different parts of the academic record, while also giving students a small dashboard to understand their performance.
+The project started as a basic student-record system and was expanded into an academic hub with student management, subject records, marks, attendance, performance insights, achievements and a What-If Grade Simulator.
 
-The project uses Python for the main program and SQLite for storing student and academic records.
+The system provides separate menus for three types of users:
 
-## What Can VITB360 Do?
+* Administrator
+* Faculty
+* Student
 
-The system has three main sections:
+---
 
-### 1. Administrator
+## Features
 
-The Administrator can:
+### Administrator
 
 * Add student records
 * View student records
-* Search for a student
-* Update student details
+* Search for students
+* Update student information
 * Delete student records
-* Add subjects for students
-* Prevent duplicate student IDs
-* Prevent duplicate subjects for the same student
+* Add subjects
+* Store faculty, slot and credit details
 
-### 2. Faculty
-
-The Faculty section can be used to:
+### Faculty
 
 * View student records
 * Add CAT1 marks
 * Add CAT2 marks
 * Add Term End marks
 * Add Internal marks
-* Add attendance
+* Add Attendance
 
-### 3. Student
+### Student
 
-The Student section includes:
+* View academic dashboard
+* View subject-wise performance
+* View average score
+* View attendance
+* View strongest subject
+* View academic highlights
+* View Achievement Wall
+* Use What-If Grade Simulator
 
-* Student Dashboard
-* Subject-wise performance
-* Academic average
-* Average attendance
-* Strongest subject
-* Achievement Wall
-* What-If Grade Simulator
+---
 
-## Marks and Grade Calculation
+## Academic Score Calculation
 
-The weighted score is calculated using the following weightage, followed in our college VIT Bhopal University:
+The final score is calculated using the following weightage:
 
-* CAT1 - 15%
-* CAT2 - 15%
-* Term End - 30%
-* Internals - 40%
+| Component | Weightage |
+| --------- | --------: |
+| CAT1      |       15% |
+| CAT2      |       15% |
+| Term End  |       30% |
+| Internals |       40% |
 
-The grades used in the project are:
+### Grade System
 
 | Score        | Grade |
 | ------------ | ----- |
 | 90 and above | S     |
-| 80 - 89.99   | A     |
-| 70 - 79.99   | B     |
-| 60 - 69.99   | C     |
-| 50 - 59.99   | D     |
-| 40 - 49.99   | E     |
+| 80 – 89.99   | A     |
+| 70 – 79.99   | B     |
+| 60 – 69.99   | C     |
+| 50 – 59.99   | D     |
+| 40 – 49.99   | E     |
 | Below 40     | F     |
+
+---
 
 ## Database
 
-VITB360 uses SQLite as its database.
+VITB360 uses SQLite for persistent storage.
 
 The database contains two main tables:
 
 ### Students
 
-This table stores basic student information such as:
+Stores:
 
 * Student ID
 * Name
@@ -86,10 +90,10 @@ This table stores basic student information such as:
 
 ### Academic Records
 
-This table stores academic information such as:
+Stores:
 
 * Student ID
-* Subject
+* Subject Name
 * Faculty
 * Slot
 * Credits
@@ -99,16 +103,20 @@ This table stores academic information such as:
 * Internal marks
 * Attendance
 
-The database file is created automatically when the program is run, so no separate database server or installation is required.
+The SQLite database file is created automatically when the application is run.
+
+---
 
 ## Technologies Used
 
 * Python 3
 * SQLite
-* VS Code
-* Command Line / Terminal
+* Command-Line Interface (CLI)
+* GitHub
 
 No external Python packages are required.
+
+---
 
 ## Project Files
 
@@ -117,61 +125,97 @@ VITB360/
 │
 ├── main.py
 ├── database.py
+├── test_project.py
 ├── README.md
+├── statement.md
 └── .gitignore
 ```
 
-`main.py` contains the main program, menus and academic functions.
+### File Description
 
-`database.py` contains the SQLite database connection and database operations.
+**main.py**
+Contains the main application, menus and academic features.
 
-## How to Run the Project
+**database.py**
+Contains SQLite database connection and database operations.
 
-### Step 1: Install Python
+**test_project.py**
+Contains basic tests for score calculation and grade calculation.
 
-Make sure Python 3 is installed on your computer.
+**README.md**
+Contains project documentation, features and instructions.
 
-You can check this by opening a terminal and running:
+**statement.md**
+Contains the problem statement, project scope, target users and high-level features.
 
-```text
-python --version
-```
+**.gitignore**
+Prevents generated files such as the SQLite database and Python cache files from being uploaded.
 
-### Step 2: Open the Project Folder
+---
 
-Open the project folder in VS Code or open a terminal inside the project folder.
+## How to Run
 
-### Step 3: Run the Program
+### Requirements
 
-Run:
+* Python 3 installed on your computer
+* Command Prompt, PowerShell or any Python-supported terminal
+
+### Steps
+
+1. Download or clone the repository.
+
+2. Open the project folder in a terminal.
+
+3. Run the application:
 
 ```text
 python main.py
 ```
 
-The program will start in the terminal.
+4. The VITB360 main menu will appear.
 
-### Step 4: Use the Menu
+5. Select the required user role and follow the menu options.
 
-Choose one of the available user types:
-
-```text
-1. Administrator
-2. Faculty
-3. Student
-4. Exit
-```
-
-Follow the instructions shown by the program.
+---
 
 ## Database Setup
 
-There is no separate database setup required.
+No separate database installation is required.
 
-When `main.py` is run for the first time, the program automatically creates the SQLite database and the required tables.
+When the application starts, the required SQLite tables are created automatically.
+
+The database file is stored locally as:
+
+```text
+vitb360.db
+```
+
+This file is ignored by Git using `.gitignore`.
+
+---
+
+## Testing
+
+Basic testing is provided through `test_project.py`.
+
+Run:
+
+```text
+python test_project.py
+```
+
+The tests verify:
+
+* Score calculation
+* Grade calculation
+* Grade boundary logic
+
+---
 
 ## Notes
 
-This project was developed as a beginner-level Python project with a focus on functions, lists, dictionaries, menu-driven programming and basic SQL/database connectivity.
-
-The aim was to keep the system simple enough to understand while still making it useful as an academic record and performance management system.
+* VITB360 is a command-line based application.
+* The project uses basic Python concepts such as functions, lists, dictionaries, loops and conditional statements.
+* SQLite is used for local persistent storage.
+* The project is designed as a first-year academic programming project.
+* No external Python libraries are required.
